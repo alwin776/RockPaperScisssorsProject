@@ -21,4 +21,8 @@ https://imgur.com/ZBGReib
 7. Open up a new terminal with the task bar  
 8. Go inside the jetson-inference folder using cd jetson-inference/
 9. Now the docker command will be used to enter the docker container  [./docker/run.sh]
-10. 
+10. Download the BRock model which can be found in the repository
+11. Enter cd python/training/classification and export the model [python3 onnx_export.py --model-dir=models/BRock]
+12. Run [NET=models/BRock] and [DATASET=data/BRock] to set the dataset variables
+13. Use this command to feed images into the model from the testing set imagenet.py --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=$DATASET/labels.txt $DATASET/test/rock/testrock01-10.png
+14. 
